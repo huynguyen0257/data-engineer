@@ -1,0 +1,21 @@
+version: '3'
+name: learn-airflow
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: jupiter.Dockerfile
+    container_name: jupyter_notebook
+    env_file: ./.env
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/work
+    command: start-notebook.sh --NotebookApp.token=''
+    
+volumes:
+  postgres_data:
+    driver: local
+

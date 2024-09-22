@@ -1,0 +1,10 @@
+numpy==1.26.4
+pandas==2.2.2
+matplotlib==3.9.2
+boto3
+python-dotenv
+pyarrow
+psycopg2-binary
+sqlalchemy-redshift
+redshift_connector
+awswrangler==3.9.1
