@@ -44,6 +44,21 @@ The DBT models are implemented in the [dbt repository](https://github.com/huyngu
    - **S3 Access Policy**: Allows the IAM user to create and retrieve objects in the S3 bucket.
    - Generate the **access key** and **secret key** for this user, which will be used in the ETL process.
 3. Use these credentials in your environment variables to allow your code to access and interact with the S3 bucket.
+4. **Upload Files to S3**:
+   You can use the provided `upload_csv_to_s3.sh` script to upload all the network CSV files to S3 automatically. The script will loop through all network folders inside the `./csv` directory and upload each folder's content to the corresponding path in the S3 bucket.
+
+#### Steps to Use the Script:
+
+1. Ensure you have the AWS CLI installed and configured with the correct credentials (`aws configure`).
+2. Run the script to upload all network folders to your S3 bucket.
+
+   ```bash
+   chmod +x upload_csv_to_s3.sh
+   ./upload_csv_to_s3.sh <bucket-name>
+   ```
+   Replace `<bucket-name>` with your actual S3 bucket name (e.g., `transaction-networks`).
+   - The script will automatically upload all CSV files from the `./csv` directory (e.g., `network_1`, `network_2`, etc.) into their respective folders in the specified S3 bucket.
+    - For example, all files in `./csv/network_1/` will be uploaded to `s3://<bucket-name>/network_1/`.
 
 ### DBT:
 1. **Create a new DBT project**:
