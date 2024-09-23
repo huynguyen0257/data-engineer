@@ -57,8 +57,11 @@ The DBT models are implemented in the [dbt repository](https://github.com/huyngu
    ./upload_csv_to_s3.sh <bucket-name>
    ```
    Replace `<bucket-name>` with your actual S3 bucket name (e.g., `transaction-networks`).
+
    - The script will automatically upload all CSV files from the `./csv` directory (e.g., `network_1`, `network_2`, etc.) into their respective folders in the specified S3 bucket.
     - For example, all files in `./csv/network_1/` will be uploaded to `s3://<bucket-name>/network_1/`.
+
+    This ensures all network data is uploaded to S3 for further processing.
 
 ### DBT:
 1. **Create a new DBT project**:
